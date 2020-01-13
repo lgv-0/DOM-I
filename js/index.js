@@ -69,6 +69,18 @@ contactInfoList[2].innerText = siteContent["contact"]["email"];
 
 document.getElementsByTagName("footer")[0].firstElementChild.innerText = siteContent["footer"]["copyright"];
 
+let e_NavContainer = document.getElementsByTagName("nav")[0];
+
+let e_RandomNavItem1 = document.createElement("a");
+e_RandomNavItem1.appendChild(document.createTextNode("Random1"));
+e_RandomNavItem1.setAttribute("href", "#");
+e_NavContainer.appendChild(e_RandomNavItem1);
+
+let e_RandomNavItem2 = document.createElement("a");
+e_RandomNavItem2.appendChild(document.createTextNode("Random2"));
+e_RandomNavItem2.setAttribute("href", "#");
+e_NavContainer.prepend(e_RandomNavItem2);
+
 document.querySelectorAll("header nav a").forEach((e_Item) =>
   {
     e_Item.style.color = "green";
