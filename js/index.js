@@ -41,17 +41,21 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+//Fill in navigation information
 for (let i = 0; i < Object.keys(siteContent["nav"]).length - 1; i++)
   document.getElementsByTagName("nav")[0].children[i].text = `${siteContent["nav"]["nav-item-" + (i + 1).toString()]}`;
 
+//Fill header information
 let e_CTA = document.getElementsByClassName("cta")[0];
 e_CTA.firstElementChild.firstElementChild.innerHTML = siteContent["cta"]["h1"].split(' ').join('<br>');
 e_CTA.firstElementChild.lastElementChild.innerText = siteContent["cta"]["button"];
 e_CTA.lastElementChild.attributes[1].value = siteContent["cta"]["img-src"];
 
+//Fill middle image
 let e_MainContentContainer = document.getElementsByClassName("main-content")[0];
 e_MainContentContainer.getElementsByClassName("middle-img")[0].setAttribute('src', siteContent["main-content"]["middle-img-src"]);
 
+//Fill info blocks
 function f_FillTextContent(e_Target, s_Use)
 { e_Target.firstElementChild.innerText = siteContent["main-content"][`${s_Use}-h4`]; e_Target.lastElementChild.innerText = siteContent["main-content"][`${s_Use}-content`]; }
 
@@ -60,6 +64,7 @@ f_FillTextContent(textList[0], "features"); f_FillTextContent(textList[1], "abou
 f_FillTextContent(textList[2], "services"); f_FillTextContent(textList[3], "product");
 f_FillTextContent(textList[4], "vision");
 
+//Fill contact information
 let e_Contact = document.getElementsByClassName("contact")[0];
 e_Contact.firstElementChild.innerText = siteContent["contact"]["contact-h4"];
 let contactInfoList = e_Contact.getElementsByTagName("p");
@@ -67,8 +72,10 @@ contactInfoList[0].innerHTML = siteContent["contact"]["address"].replace("Street
 contactInfoList[1].innerText = siteContent["contact"]["phone"];
 contactInfoList[2].innerText = siteContent["contact"]["email"];
 
+//Fill footer
 document.getElementsByTagName("footer")[0].firstElementChild.innerText = siteContent["footer"]["copyright"];
 
+//Create extra nav items
 let e_NavContainer = document.getElementsByTagName("nav")[0];
 
 let e_RandomNavItem1 = document.createElement("a");
@@ -81,6 +88,7 @@ e_RandomNavItem2.appendChild(document.createTextNode("Random2"));
 e_RandomNavItem2.setAttribute("href", "#");
 e_NavContainer.prepend(e_RandomNavItem2);
 
+//Color nav items green
 document.querySelectorAll("header nav a").forEach((e_Item) =>
   {
     e_Item.style.color = "green";
