@@ -64,7 +64,7 @@ let e_Contact = document.getElementsByClassName("contact")[0];
 e_Contact.firstElementChild.innerText = siteContent["contact"]["contact-h4"];
 let contactInfoList = e_Contact.getElementsByTagName("p");
 contactInfoList[0].innerHTML = siteContent["contact"]["address"].replace("Street ", "Street<br>");
-contactInfoList[1].innerText = siteContent["contact"]["email"];
-contactInfoList[2].innerText = siteContent["contact"]["phone"];
+contactInfoList[1].innerText = siteContent["contact"]["phone"];
+contactInfoList[2].innerText = siteContent["contact"]["email"];
 
 document.getElementsByTagName("footer")[0].firstElementChild.innerText = siteContent["footer"]["copyright"];
