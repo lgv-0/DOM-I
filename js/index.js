@@ -40,3 +40,31 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+for (let i = 0; i < Object.keys(siteContent["nav"]).length - 1; i++)
+  document.getElementsByTagName("nav")[0].children[i].text = `${siteContent["nav"]["nav-item-" + (i + 1).toString()]}`;
+
+let e_CTA = document.getElementsByClassName("cta")[0];
+e_CTA.firstElementChild.firstElementChild.innerHTML = siteContent["cta"]["h1"].split(' ').join('<br>');
+e_CTA.firstElementChild.lastElementChild.innerText = siteContent["cta"]["button"];
+e_CTA.lastElementChild.attributes[1].value = siteContent["cta"]["img-src"];
+
+let e_MainContentContainer = document.getElementsByClassName("main-content")[0];
+e_MainContentContainer.getElementsByClassName("middle-img")[0].setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
+function f_FillTextContent(e_Target, s_Use)
+{ e_Target.firstElementChild.innerText = siteContent["main-content"][`${s_Use}-h4`]; e_Target.lastElementChild.innerText = siteContent["main-content"][`${s_Use}-content`]; }
+
+let textList = e_MainContentContainer.getElementsByClassName("text-content");
+f_FillTextContent(textList[0], "features"); f_FillTextContent(textList[1], "about");
+f_FillTextContent(textList[2], "services"); f_FillTextContent(textList[3], "product");
+f_FillTextContent(textList[4], "vision");
+
+let e_Contact = document.getElementsByClassName("contact")[0];
+e_Contact.firstElementChild.innerText = siteContent["contact"]["contact-h4"];
+let contactInfoList = e_Contact.getElementsByTagName("p");
+contactInfoList[0].innerHTML = siteContent["contact"]["address"].replace("Street ", "Street<br>");
+contactInfoList[1].innerText = siteContent["contact"]["email"];
+contactInfoList[2].innerText = siteContent["contact"]["phone"];
+
+document.getElementsByTagName("footer")[0].firstElementChild.innerText = siteContent["footer"]["copyright"];
