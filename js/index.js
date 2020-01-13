@@ -68,3 +68,8 @@ contactInfoList[1].innerText = siteContent["contact"]["phone"];
 contactInfoList[2].innerText = siteContent["contact"]["email"];
 
 document.getElementsByTagName("footer")[0].firstElementChild.innerText = siteContent["footer"]["copyright"];
+
+document.querySelectorAll("header nav a").forEach((e_Item) =>
+  {
+    e_Item.style.color = "green";
+  });
